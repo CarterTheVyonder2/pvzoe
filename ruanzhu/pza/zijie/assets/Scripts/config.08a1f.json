@@ -1,0 +1,1 @@
+{"paths":{"0":["rect_white",1],"1":["rect_white",0,1]},"types":["cc.SpriteFrame","cc.Texture2D"],"uuids":["beMEXRi7FPZbJiGir23OOG","a7pt15Sp9BxpZSEJ9UND+y"],"scenes":{},"redirect":[],"deps":[],"packs":{},"name":"Scripts","importBase":"import","nativeBase":"native","debug":false,"isZip":false,"encrypted":false,"versions":{"import":[1,"d1d89",0,"7871f"],"native":[0,"cea68"]}}

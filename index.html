@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dragon Boi's PvZOE Hub!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(to bottom, #0073e6, #004080);
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to right, #004080, #001f40);
+            padding: 15px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            color: #ffcc00;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 30px auto;
+            max-width: 1200px;
+        }
+        .card {
+            background: linear-gradient(to bottom, #00284d, #001730);
+            border-radius: 10px;
+            margin: 15px;
+            padding: 20px;
+            width: 250px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+        .card img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .card h3 {
+            margin: 15px 0;
+            font-size: 1.5em;
+            color: #ffcc00;
+        }
+        .card button {
+            background: linear-gradient(to bottom, #28a745, #19692c);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        .card button:hover {
+            background: linear-gradient(to bottom, #34d058, #22863a);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        }
+        #fullscreen {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            z-index: 9999;
+        }
+        #fullscreen iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        #fullscreen .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: red;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            z-index: 10000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        #fullscreen .close-btn:hover {
+            background: darkred;
+        }
+        .disclaimer {
+            margin: 20px 0;
+            font-size: 1.2em;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Dragon Boi's PvZOE Hub!</h1>
+    </header>
+    <div class="container">
+        <!-- Card 1: Tower Of Overwatch -->
+        <div class="card">
+            <img src="too.jpg" alt="Tower Of Overwatch">
+            <h3>Tower Of Overwatch (REDESIGN RES.GAMEJYM.COM)</h3>
+            <button onclick="playGame('https://res.gamejym.com/ceshi/f2/v23')">Play</button>
+        </div>
+        <!-- Card 2: PvZOE -->
+        <div class="card">
+            <img src="oe.jpg" alt="PvZOE">
+            <h3>PvZOE</h3>
+            <button onclick="playGame('./ruanzhu/pza/zijie/')">Play</button>
+        </div>
+        <!-- Card 3: PvZOE Super Chomper Build -->
+        <div class="card">
+            <img src="oe.jpg" alt="PvZOE: Super Chomper Build">
+            <h3>PvZOE: Super Chomper Build</h3>
+            <button onclick="playGame('./ruanzhu/pza/v4')">Play</button>
+        </div>
+        <!-- Card 4: PvZOE v48 -->
+        <div class="card">
+            <img src="oe.jpg" alt="PvZOE: v48">
+            <h3>PvZOE: v48</h3>
+            <button onclick="playGame('./ruanzhu/pza/v48')">Play</button>
+        </div>
+    </div>
+    <div id="fullscreen">
+        <button class="close-btn" onclick="closeGame()">Close</button>
+        <iframe id="game-frame"></iframe>
+    </div>
+    <div class="disclaimer">
+        Refresh after each game is closed
+    </div>
+    <script>
+        function playGame(url) {
+            const fullscreenDiv = document.getElementById('fullscreen');
+            const gameFrame = document.getElementById('game-frame');
+
+            console.log(`Loading game from: ${url}`);
+            gameFrame.src = url + (url.endsWith('/') ? 'index.html' : '/index.html');
+            fullscreenDiv.style.display = 'block';
+        }
+
+        function closeGame() {
+            const fullscreenDiv = document.getElementById('fullscreen');
+            const gameFrame = document.getElementById('game-frame');
+            gameFrame.src = '';
+            fullscreenDiv.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
