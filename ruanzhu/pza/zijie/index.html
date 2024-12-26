@@ -1,93 +1,90 @@
 <!DOCTYPE html>
-<html><head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width"><title>https://res.gamejym.com/ceshi/f1/v1/</title><link rel="stylesheet" type="text/css" href="resource://content-accessible/viewsource.css"></head><body id="viewsource" style="tab-size: 4"><pre id="line1"><span></span><span class="doctype">&lt;!DOCTYPE html&gt;</span><span>
-<span id="line2"></span></span><span>&lt;<span class="start-tag">html</span>&gt;</span><span>
-<span id="line3"></span></span><span>&lt;<span class="start-tag">head</span>&gt;</span><span>
-<span id="line4"></span>  </span><span>&lt;<span class="start-tag">meta</span> <span class="attribute-name">charset</span>="<a class="attribute-value">utf-8</a>"&gt;</span><span>
-<span id="line5"></span>
-<span id="line6"></span>  </span><span>&lt;<span class="start-tag">title</span>&gt;</span><span>Cocos Creator | pza</span><span>&lt;/<span class="end-tag">title</span>&gt;</span><span>
-<span id="line7"></span>
-<span id="line8"></span>  </span><span class="comment">&lt;!--http://www.html5rocks.com/en/mobile/mobifying/--&gt;</span><span>
-<span id="line9"></span>  </span><span>&lt;<span class="start-tag">meta</span> <span class="attribute-name">name</span>="<a class="attribute-value">viewport</a>"
-<span id="line10"></span>        <span class="attribute-name">content</span>="<a class="attribute-value">width=device-width,user-scalable=no,initial-scale=1, minimum-scale=1,maximum-scale=1</a>"<span>/</span>&gt;</span><span>
-<span id="line11"></span>
-<span id="line12"></span>  </span><span class="comment">&lt;!--https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html--&gt;</span><span>
-<span id="line13"></span>  </span><span>&lt;<span class="start-tag">meta</span> <span class="attribute-name">name</span>="<a class="attribute-value">apple-mobile-web-app-capable</a>" <span class="attribute-name">content</span>="<a class="attribute-value">yes</a>"&gt;</span><span>
-<span id="line14"></span>  </span><span>&lt;<span class="start-tag">meta</span> <span class="attribute-name">name</span>="<a class="attribute-value">apple-mobile-web-app-status-bar-style</a>" <span class="attribute-name">content</span>="<a class="attribute-value">black-translucent</a>"&gt;</span><span>
-<span id="line15"></span>  </span><span>&lt;<span class="start-tag">meta</span> <span class="attribute-name">name</span>="<a class="attribute-value">format-detection</a>" <span class="attribute-name">content</span>="<a class="attribute-value">telephone=no</a>"&gt;</span><span>
-<span id="line16"></span>
-<span id="line17"></span>  </span><span class="comment">&lt;!-- force webkit on 360 --&gt;</span><span>
-<span id="line18"></span>  </span><span>&lt;<span class="start-tag">meta</span> <span class="attribute-name">name</span>="<a class="attribute-value">renderer</a>" <span class="attribute-name">content</span>="<a class="attribute-value">webkit</a>"<span>/</span>&gt;</span><span>
-<span id="line19"></span>  </span><span>&lt;<span class="start-tag">meta</span> <span class="attribute-name">name</span>="<a class="attribute-value">force-rendering</a>" <span class="attribute-name">content</span>="<a class="attribute-value">webkit</a>"<span>/</span>&gt;</span><span>
-<span id="line20"></span>  </span><span class="comment">&lt;!-- force edge on IE --&gt;</span><span>
-<span id="line21"></span>  </span><span>&lt;<span class="start-tag">meta</span> <span class="attribute-name">http-equiv</span>="<a class="attribute-value">X-UA-Compatible</a>" <span class="attribute-name">content</span>="<a class="attribute-value">IE=edge,chrome=1</a>"<span>/</span>&gt;</span><span>
-<span id="line22"></span>  </span><span>&lt;<span class="start-tag">meta</span> <span class="attribute-name">name</span>="<a class="attribute-value">msapplication-tap-highlight</a>" <span class="attribute-name">content</span>="<a class="attribute-value">no</a>"&gt;</span><span>
-<span id="line23"></span>
-<span id="line24"></span>  </span><span class="comment">&lt;!-- force full screen on some browser --&gt;</span><span>
-<span id="line25"></span>  </span><span>&lt;<span class="start-tag">meta</span> <span class="attribute-name">name</span>="<a class="attribute-value">full-screen</a>" <span class="attribute-name">content</span>="<a class="attribute-value">yes</a>"<span>/</span>&gt;</span><span>
-<span id="line26"></span>  </span><span>&lt;<span class="start-tag">meta</span> <span class="attribute-name">name</span>="<a class="attribute-value">x5-fullscreen</a>" <span class="attribute-name">content</span>="<a class="attribute-value">true</a>"<span>/</span>&gt;</span><span>
-<span id="line27"></span>  </span><span>&lt;<span class="start-tag">meta</span> <span class="attribute-name">name</span>="<a class="attribute-value">360-fullscreen</a>" <span class="attribute-name">content</span>="<a class="attribute-value">true</a>"<span>/</span>&gt;</span><span>
-<span id="line28"></span>  
-<span id="line29"></span>  </span><span class="comment">&lt;!-- force screen orientation on some browser --&gt;</span><span>
-<span id="line30"></span>  </span><span>&lt;<span class="start-tag">meta</span> <span class="attribute-name">name</span>="<a class="attribute-value">screen-orientation</a>" <span class="attribute-name">content</span>="<a class="attribute-value">landscape</a>"<span>/</span>&gt;</span><span>
-<span id="line31"></span>  </span><span>&lt;<span class="start-tag">meta</span> <span class="attribute-name">name</span>="<a class="attribute-value">x5-orientation</a>" <span class="attribute-name">content</span>="<a class="attribute-value">landscape</a>"&gt;</span><span>
-<span id="line32"></span>
-<span id="line33"></span>  </span><span class="comment">&lt;!--fix fireball/issues/3568 --&gt;</span><span>
-<span id="line34"></span>  </span><span class="comment">&lt;!--&lt;meta name="browsermode" content="application"&gt;--&gt;</span><span>
-<span id="line35"></span>  </span><span>&lt;<span class="start-tag">meta</span> <span class="attribute-name">name</span>="<a class="attribute-value">x5-page-mode</a>" <span class="attribute-name">content</span>="<a class="attribute-value">app</a>"&gt;</span><span>
-<span id="line36"></span>
-<span id="line37"></span>  </span><span class="comment">&lt;!--&lt;link rel="apple-touch-icon" href=".png" /&gt;--&gt;</span><span>
-<span id="line38"></span>  </span><span class="comment">&lt;!--&lt;link rel="apple-touch-icon-precomposed" href=".png" /&gt;--&gt;</span><span>
-<span id="line39"></span>
-<span id="line40"></span>  </span><span>&lt;<span class="start-tag">link</span> <span class="attribute-name">rel</span>="<a class="attribute-value">stylesheet</a>" <span class="attribute-name">type</span>="<a class="attribute-value">text/css</a>" <span class="attribute-name">href</span>="<a class="attribute-value" href="view-source:https://res.gamejym.com/ceshi/f1/v1/style-mobile.25fc5.css">style-mobile.25fc5.css</a>"<span>/</span>&gt;</span><span>
-<span id="line41"></span>  </span><span>&lt;<span class="start-tag">link</span> <span class="attribute-name">rel</span>="<a class="attribute-value">icon</a>" <span class="attribute-name">href</span>="<a class="attribute-value" href="view-source:https://res.gamejym.com/ceshi/f1/v1/favicon.8de18.ico">favicon.8de18.ico</a>"<span>/</span>&gt;</span><span>
-<span id="line42"></span></span><span>&lt;/<span class="end-tag">head</span>&gt;</span><span>
-<span id="line43"></span></span><span>&lt;<span class="start-tag">body</span>&gt;</span><span>
-<span id="line44"></span>  </span><span>&lt;<span class="start-tag">canvas</span> <span class="attribute-name">id</span>="<a class="attribute-value">GameCanvas</a>" <span class="attribute-name">oncontextmenu</span>="<a class="attribute-value">event.preventDefault()</a>" <span class="attribute-name">tabindex</span>="<a class="attribute-value">0</a>"&gt;</span><span></span><span>&lt;/<span class="end-tag">canvas</span>&gt;</span><span>
-<span id="line45"></span>  </span><span>&lt;<span class="start-tag">div</span> <span class="attribute-name">id</span>="<a class="attribute-value">splash</a>"&gt;</span><span>
-<span id="line46"></span>    </span><span>&lt;<span class="start-tag">div</span> <span class="attribute-name">class</span>="<a class="attribute-value">progress-bar stripes</a>"&gt;</span><span>
-<span id="line47"></span>      </span><span>&lt;<span class="start-tag">span</span> <span class="attribute-name">style</span>="<a class="attribute-value">width: 0%</a>"&gt;</span><span></span><span>&lt;/<span class="end-tag">span</span>&gt;</span><span>
-<span id="line48"></span>    </span><span>&lt;/<span class="end-tag">div</span>&gt;</span><span>
-<span id="line49"></span>  </span><span>&lt;/<span class="end-tag">div</span>&gt;</span><span>
-<span id="line50"></span>
-<span id="line51"></span></span><span>&lt;<span class="start-tag">script</span> <span class="attribute-name">src</span>="<a class="attribute-value" href="view-source:https://res.gamejym.com/ceshi/f1/v1/src/settings.6ea38.js">src/settings.6ea38.js</a>" <span class="attribute-name">charset</span>="<a class="attribute-value">utf-8</a>"&gt;</span><span></span><span>&lt;/<span class="end-tag">script</span>&gt;</span><span>
-<span id="line52"></span>
-<span id="line53"></span></span><span>&lt;<span class="start-tag">script</span> <span class="attribute-name">src</span>="<a class="attribute-value" href="view-source:https://res.gamejym.com/ceshi/f1/v1/main.9bef6.js">main.9bef6.js</a>" <span class="attribute-name">charset</span>="<a class="attribute-value">utf-8</a>"&gt;</span><span></span><span>&lt;/<span class="end-tag">script</span>&gt;</span><span>
-<span id="line54"></span>
-<span id="line55"></span></span><span>&lt;<span class="start-tag">script</span> <span class="attribute-name">type</span>="<a class="attribute-value">text/javascript</a>"&gt;</span><span>
-<span id="line56"></span>(function () {
-<span id="line57"></span>    // open web debugger console
-<span id="line58"></span>    if (typeof VConsole !== 'undefined') {
-<span id="line59"></span>        window.vConsole = new VConsole();
-<span id="line60"></span>    }
-<span id="line61"></span>
-<span id="line62"></span>    var debug = window._CCSettings.debug;
-<span id="line63"></span>    var splash = document.getElementById('splash');
-<span id="line64"></span>    splash.style.display = 'block';
-<span id="line65"></span>
-<span id="line66"></span>    function loadScript (moduleName, cb) {
-<span id="line67"></span>      function scriptLoaded () {
-<span id="line68"></span>          document.body.removeChild(domScript);
-<span id="line69"></span>          domScript.removeEventListener('load', scriptLoaded, false);
-<span id="line70"></span>          cb &amp;&amp; cb();
-<span id="line71"></span>      };
-<span id="line72"></span>      var domScript = document.createElement('script');
-<span id="line73"></span>      domScript.async = true;
-<span id="line74"></span>      domScript.src = moduleName;
-<span id="line75"></span>      domScript.addEventListener('load', scriptLoaded, false);
-<span id="line76"></span>      document.body.appendChild(domScript);
-<span id="line77"></span>    }
-<span id="line78"></span>
-<span id="line79"></span>    loadScript(debug ? 'cocos2d-js.js' : 'cocos2d-js-min.d39f3.js', function () {
-<span id="line80"></span>      if (CC_PHYSICS_BUILTIN || CC_PHYSICS_CANNON) {
-<span id="line81"></span>        loadScript(debug ? 'physics.js' : 'physics-min.js', window.boot);
-<span id="line82"></span>      }
-<span id="line83"></span>      else {
-<span id="line84"></span>        window.boot();
-<span id="line85"></span>      }
-<span id="line86"></span>    });
-<span id="line87"></span>})();
-<span id="line88"></span></span><span>&lt;/<span class="end-tag">script</span>&gt;</span><span>
-<span id="line89"></span></span><span>&lt;/<span class="end-tag">body</span>&gt;</span><span>
-<span id="line90"></span></span><span>&lt;/<span class="end-tag">html</span>&gt;</span><span>
-<span id="line91"></span></span></pre></body></html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title>Cocos Creator | pza</title>
+
+  <!--http://www.html5rocks.com/en/mobile/mobifying/-->
+  <meta name="viewport"
+        content="width=device-width,user-scalable=no,initial-scale=1, minimum-scale=1,maximum-scale=1"/>
+
+  <!--https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="format-detection" content="telephone=no">
+
+  <!-- force webkit on 360 -->
+  <meta name="renderer" content="webkit"/>
+  <meta name="force-rendering" content="webkit"/>
+  <!-- force edge on IE -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <!-- force full screen on some browser -->
+  <meta name="full-screen" content="yes"/>
+  <meta name="x5-fullscreen" content="true"/>
+  <meta name="360-fullscreen" content="true"/>
+  
+  <!-- force screen orientation on some browser -->
+  <meta name="screen-orientation" content="landscape"/>
+  <meta name="x5-orientation" content="landscape">
+
+  <!--fix fireball/issues/3568 -->
+  <!--<meta name="browsermode" content="application">-->
+  <meta name="x5-page-mode" content="app">
+
+  <!--<link rel="apple-touch-icon" href=".png" />-->
+  <!--<link rel="apple-touch-icon-precomposed" href=".png" />-->
+
+  <link rel="stylesheet" type="text/css" href="style-mobile.25fc5.css"/>
+  <link rel="icon" href="favicon.8de18.ico"/>
+</head>
+<body>
+  <canvas id="GameCanvas" oncontextmenu="event.preventDefault()" tabindex="0"></canvas>
+  <div id="splash">
+    <div class="progress-bar stripes">
+      <span style="width: 0%"></span>
+    </div>
+  </div>
+
+<script src="src/settings.6ea38.js" charset="utf-8"></script>
+
+<script src="main.9bef6.js" charset="utf-8"></script>
+
+<script type="text/javascript">
+(function () {
+    // open web debugger console
+    if (typeof VConsole !== 'undefined') {
+        window.vConsole = new VConsole();
+    }
+
+    var debug = window._CCSettings.debug;
+    var splash = document.getElementById('splash');
+    splash.style.display = 'block';
+
+    function loadScript (moduleName, cb) {
+      function scriptLoaded () {
+          document.body.removeChild(domScript);
+          domScript.removeEventListener('load', scriptLoaded, false);
+          cb && cb();
+      };
+      var domScript = document.createElement('script');
+      domScript.async = true;
+      domScript.src = moduleName;
+      domScript.addEventListener('load', scriptLoaded, false);
+      document.body.appendChild(domScript);
+    }
+
+    loadScript(debug ? 'cocos2d-js.js' : 'cocos2d-js-min.d39f3.js', function () {
+      if (CC_PHYSICS_BUILTIN || CC_PHYSICS_CANNON) {
+        loadScript(debug ? 'physics.js' : 'physics-min.js', window.boot);
+      }
+      else {
+        window.boot();
+      }
+    });
+})();
+</script>
+</body>
+</html>
