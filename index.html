@@ -184,9 +184,15 @@
         </div>
     </div>
     <script>
+        const secretHash = "dd5f70ea8b4dc0e3a9e5c15479f58b45"; // Hash of the password
+
+        function hashPassword(password) {
+            return CryptoJS.MD5(password).toString();
+        }
+
         function unlock() {
             const password = document.getElementById('password').value;
-            if (password === 'towerofoverwatchbetas123') {
+            if (hashPassword(password) === secretHash) {
                 document.getElementById('lock-screen').style.display = 'none';
                 document.getElementById('content').style.display = 'block';
             } else {
@@ -210,5 +216,6 @@
             fullscreenDiv.style.display = 'none';
         }
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 </body>
 </html>
