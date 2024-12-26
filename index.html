@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dragon Boi's PvZOE Hub!</title>
+    <title>Locked</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -36,6 +36,10 @@
             border-radius: 5px;
             font-size: 1em;
             cursor: pointer;
+        }
+        #lock-screen .lock-icon {
+            font-size: 3em;
+            margin-bottom: 10px;
         }
         #content {
             display: none;
@@ -135,7 +139,8 @@
 </head>
 <body>
     <div id="lock-screen">
-        <h1>Enter Password</h1>
+        <div class="lock-icon">🔒</div>
+        <h2>Password Verification</h2>
         <input type="password" id="password" placeholder="Enter password here">
         <button onclick="unlock()">Unlock</button>
     </div>
@@ -194,6 +199,7 @@
             const password = document.getElementById('password').value;
             if (hashPassword(password) === secretHash) {
                 document.getElementById('lock-screen').style.display = 'none';
+                document.title = "Dragon Boi's PvZOE Hub!";
                 document.getElementById('content').style.display = 'block';
             } else {
                 alert('Incorrect password. Please try again.');
@@ -203,6 +209,11 @@
         function playGame(url) {
             const fullscreenDiv = document.getElementById('fullscreen');
             const gameFrame = document.getElementById('game-frame');
+
+            if (document.getElementById('lock-screen').style.display !== 'none') {
+                alert('Unlock the hub first!');
+                return;
+            }
 
             console.log(`Loading game from: ${url}`);
             gameFrame.src = url + (url.endsWith('/') ? 'index.html' : '/index.html');
