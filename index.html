@@ -189,15 +189,40 @@
         </div>
     </div>
     <script>
-        const secretHash = "d535570b7a922f83d22baafc70642ad1"; // Hash of the password
+        document.addEventListener('contextmenu', (e) => e.preventDefault());
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'F12' || (e.ctrlKey && (e.key === 'U' || e.key === 'I'))) {
+                e.preventDefault();
+                alert('Inspecting is disabled.');
+            }
+        });
 
-        function hashPassword(password) {
-            return CryptoJS.MD5(password).toString();
+        async function checkGeolocation() {
+            try {
+                const response = await fetch('https://ipinfo.io/json?token=YOUR_TOKEN');
+                const data = await response.json();
+
+                const restrictedRegions = ["Asia", "CN", "IN", "JP", "KR", "PK", "BD", "TH", "VN"];
+                if (restrictedRegions.includes(data.continent_code) || restrictedRegions.includes(data.country)) {
+                    alert('Access denied from your region.');
+                    document.body.innerHTML = '';
+                }
+            } catch (error) {
+                console.error('Geolocation check failed:', error);
+                alert('Unable to verify your region. Access denied.');
+                document.body.innerHTML = '';
+            }
+        }
+
+        const encryptedSecret = "b3BlbnNlc2FtZQ=="; // Encrypted secret in base64
+
+        function decryptSecret(encrypted) {
+            return atob(encrypted); // Decodes base64 string
         }
 
         function unlock() {
             const password = document.getElementById('password').value;
-            if (hashPassword(password) === secretHash) {
+            if (password === decryptSecret(encryptedSecret)) {
                 document.getElementById('lock-screen').style.display = 'none';
                 document.title = "Dragon Boi's PvZOE Hub!";
                 document.getElementById('content').style.display = 'block';
@@ -226,7 +251,8 @@
             gameFrame.src = '';
             fullscreenDiv.style.display = 'none';
         }
+
+        checkGeolocation();
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 </body>
 </html>
