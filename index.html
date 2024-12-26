@@ -197,23 +197,6 @@
             }
         });
 
-        async function checkGeolocation() {
-            try {
-                const response = await fetch('https://ipinfo.io/json?token=YOUR_TOKEN');
-                const data = await response.json();
-
-                const restrictedRegions = ["Asia", "CN", "IN", "JP", "KR", "PK", "BD", "TH", "VN"];
-                if (restrictedRegions.includes(data.continent_code) || restrictedRegions.includes(data.country)) {
-                    alert('Access denied from your region.');
-                    document.body.innerHTML = '';
-                }
-            } catch (error) {
-                console.error('Geolocation check failed:', error);
-                alert('Unable to verify your region. Access denied.');
-                document.body.innerHTML = '';
-            }
-        }
-
         const encryptedSecret = "b3BlbnNlc2FtZQ=="; // Encrypted secret in base64
 
         function decryptSecret(encrypted) {
@@ -251,8 +234,6 @@
             gameFrame.src = '';
             fullscreenDiv.style.display = 'none';
         }
-
-        checkGeolocation();
     </script>
 </body>
 </html>
