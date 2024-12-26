@@ -197,8 +197,41 @@
             }
         });
 
-        const encryptedSecret = "dG93ZXJvZm92ZXJ3YXRjaGJldGFzMTIz";
+        const encryptedSecret = "d535570b7a922f83d22baafc70642ad1";
+
+        function unlock() {
+            const password = document.getElementById('password').value;
+            const hashedPassword = CryptoJS.MD5(password).toString();
+            if (hashedPassword === encryptedSecret) {
+                document.getElementById('lock-screen').style.display = 'none';
+                document.title = "Dragon Boi's PvZOE Hub!";
+                document.getElementById('content').style.display = 'block';
+            } else {
+                alert('Incorrect password. Please try again.');
+            }
+        }
+
+        function playGame(url) {
+            const fullscreenDiv = document.getElementById('fullscreen');
+            const gameFrame = document.getElementById('game-frame');
+
+            if (document.getElementById('lock-screen').style.display !== 'none') {
+                alert('Unlock the hub first!');
+                return;
+            }
+
+            console.log(`Loading game from: ${url}`);
+            gameFrame.src = url + (url.endsWith('/') ? 'index.html' : '/index.html');
+            fullscreenDiv.style.display = 'block';
+        }
+
+        function closeGame() {
+            const fullscreenDiv = document.getElementById('fullscreen');
+            const gameFrame = document.getElementById('game-frame');
+            gameFrame.src = '';
+            fullscreenDiv.style.display = 'none';
         }
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 </body>
 </html>
