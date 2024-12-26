@@ -13,6 +13,33 @@
             margin: 0;
             padding: 0;
         }
+        #lock-screen {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to bottom, #000000, #1a1a1a);
+        }
+        #lock-screen input {
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+        }
+        #lock-screen button {
+            background: linear-gradient(to bottom, #28a745, #19692c);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        #content {
+            display: none;
+        }
         header {
             display: flex;
             justify-content: center;
@@ -107,49 +134,66 @@
     </style>
 </head>
 <body>
-    <header>
-        <h1>Dragon Boi's PvZOE Hub!</h1>
-    </header>
-    <div class="container">
-        <!-- Card 1: Tower Of Overwatch -->
-        <div class="card">
-            <img src="too.jpg" alt="Tower Of Overwatch">
-            <h3>Plant Eliminate Zombie (v2)</h3>
-            <button onclick="playGame('./ruanzhu/pza/ceshi/f10/v2')">Play</button>
-        </div>
-        <!-- Card 2: PvZOE -->
-        <div class="card">
-            <img src="oe.jpg" alt="PvZOE">
-            <h3>PvZOE</h3>
-            <button onclick="playGame('./ruanzhu/pza/zijie/')">Play</button>
-        </div>
-        <!-- Card 3: PvZOE Super Chomper Build -->
-        <div class="card">
-            <img src="oe.jpg" alt="PvZOE: Super Chomper Build">
-            <h3>PvZOE: Super Chomper Build</h3>
-            <button onclick="playGame('./ruanzhu/pza/v4')">Play</button>
-        </div>
-        <!-- Card 4: PvZOE v48 -->
-        <div class="card">
-            <img src="oe.jpg" alt="PvZOE: v48">
-            <h3>PvZOE: v48</h3>
-            <button onclick="playGame('./ruanzhu/pza/v48')">Play</button>
-        </div>
-        <!-- Card 5: Tower of Overwatch (Mid-Rectification) -->
-        <div class="card">
-            <img src="toologo.jpg" alt="Tower of Overwatch (Mid-Rectification)">
-            <h3>Tower of Overwatch (Mid-Rectification)</h3>
-            <button onclick="playGame('./ruanzhu/pza/v6')">Play</button>
-        </div>
+    <div id="lock-screen">
+        <h1>Enter Password</h1>
+        <input type="password" id="password" placeholder="Enter password here">
+        <button onclick="unlock()">Unlock</button>
     </div>
-    <div id="fullscreen">
-        <button class="close-btn" onclick="closeGame()">Close</button>
-        <iframe id="game-frame"></iframe>
-    </div>
-    <div class="disclaimer">
-        PRIVATE. DO NOT SHARE.
+    <div id="content">
+        <header>
+            <h1>Dragon Boi's PvZOE Hub!</h1>
+        </header>
+        <div class="container">
+            <!-- Card 1: Tower Of Overwatch -->
+            <div class="card">
+                <img src="too.jpg" alt="Tower Of Overwatch">
+                <h3>Plant Eliminate Zombie (v2)</h3>
+                <button onclick="playGame('./ruanzhu/pza/ceshi/f10/v2')">Play</button>
+            </div>
+            <!-- Card 2: PvZOE -->
+            <div class="card">
+                <img src="oe.jpg" alt="PvZOE">
+                <h3>PvZOE</h3>
+                <button onclick="playGame('./ruanzhu/pza/zijie/')">Play</button>
+            </div>
+            <!-- Card 3: PvZOE Super Chomper Build -->
+            <div class="card">
+                <img src="oe.jpg" alt="PvZOE: Super Chomper Build">
+                <h3>PvZOE: Super Chomper Build</h3>
+                <button onclick="playGame('./ruanzhu/pza/v4')">Play</button>
+            </div>
+            <!-- Card 4: PvZOE v48 -->
+            <div class="card">
+                <img src="oe.jpg" alt="PvZOE: v48">
+                <h3>PvZOE: v48</h3>
+                <button onclick="playGame('./ruanzhu/pza/v48')">Play</button>
+            </div>
+            <!-- Card 5: Tower of Overwatch (Mid-Rectification) -->
+            <div class="card">
+                <img src="toologo.jpg" alt="Tower of Overwatch (Mid-Rectification)">
+                <h3>Tower of Overwatch (Mid-Rectification)</h3>
+                <button onclick="playGame('./ruanzhu/pza/v6')">Play</button>
+            </div>
+        </div>
+        <div id="fullscreen">
+            <button class="close-btn" onclick="closeGame()">Close</button>
+            <iframe id="game-frame"></iframe>
+        </div>
+        <div class="disclaimer">
+            PRIVATE. DO NOT SHARE.
+        </div>
     </div>
     <script>
+        function unlock() {
+            const password = document.getElementById('password').value;
+            if (password === 'towerofoverwatchbetas123') {
+                document.getElementById('lock-screen').style.display = 'none';
+                document.getElementById('content').style.display = 'block';
+            } else {
+                alert('Incorrect password. Please try again.');
+            }
+        }
+
         function playGame(url) {
             const fullscreenDiv = document.getElementById('fullscreen');
             const gameFrame = document.getElementById('game-frame');
