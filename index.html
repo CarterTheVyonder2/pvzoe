@@ -4,57 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dragon Boi's PvZOE Hub!</title>
+    <link rel="stylesheet" href="style.css">
     <style>
+        /* Apply a modern dark blue gradient background */
         body {
-            font-family: Arial, sans-serif;
+            font-family: Helvetica, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #222;
+            background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
             color: white;
             text-align: center;
         }
+
         header {
-            background-color: #444;
+            background: linear-gradient(to right, #1b2735, #2c3e50);
             padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
         }
+
         h1 {
             margin: 0;
+            font-size: 24px;
         }
+
         .container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             padding: 20px;
         }
+
         .card {
-            background: #333;
+            background: linear-gradient(to bottom, #223a5e, #0b132b);
             border-radius: 10px;
             padding: 15px;
             margin: 15px;
             width: 250px;
             text-align: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease-in-out;
         }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
         .card img {
             width: 100%;
             border-radius: 10px;
         }
+
         .card h3 {
             margin: 10px 0;
         }
+
         .card button {
-            background-color: #008CBA;
+            background: linear-gradient(to right, #1e3c72, #2a5298);
             color: white;
             padding: 10px;
             border: none;
             cursor: pointer;
             width: 100%;
             border-radius: 5px;
+            transition: background 0.3s ease-in-out;
         }
+
         .card button:hover {
-            background-color: #005f73;
+            background: linear-gradient(to right, #2a5298, #1e3c72);
         }
-        /* Full-screen container that fills the screen */
+
+        /* Fullscreen play area */
         #fullscreen {
             display: none;
             position: fixed;
@@ -66,20 +85,22 @@
             align-items: center;
             justify-content: center;
         }
-        /* Iframe fills the entire screen */
+
+        /* Iframe fills the screen */
         #game-frame {
             width: 100vw;
             height: 100vh;
             border: none;
         }
+
         /* Round Close Button */
         .close-btn {
             position: absolute;
-            top: 10px;
-            right: 10px;
+            top: 15px;
+            right: 15px;
             width: 50px;
             height: 50px;
-            background: #008CBA;
+            background: linear-gradient(to right, #008CBA, #005f73);
             color: white;
             font-size: 24px;
             font-weight: bold;
@@ -90,14 +111,17 @@
             align-items: center;
             justify-content: center;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            transition: background 0.3s ease-in-out;
         }
+
         .close-btn:hover {
-            background: #005f73;
+            background: linear-gradient(to right, #005f73, #008CBA);
         }
+
         .disclaimer {
             margin-top: 20px;
             font-size: 14px;
-            opacity: 0.6;
+            opacity: 0.7;
         }
     </style>
 </head>
