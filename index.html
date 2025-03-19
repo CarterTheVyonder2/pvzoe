@@ -54,31 +54,45 @@
         .card button:hover {
             background-color: #005f73;
         }
+        /* Full-screen container that fills the screen */
         #fullscreen {
             display: none;
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            width: 100vw;
+            height: 100vh;
             background: rgba(0, 0, 0, 0.9);
+            align-items: center;
+            justify-content: center;
+        }
+        /* Iframe fills the entire screen */
+        #game-frame {
+            width: 100vw;
+            height: 100vh;
+            border: none;
+        }
+        /* Round Close Button */
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 50px;
+            height: 50px;
+            background: #008CBA;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-direction: column;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         }
-        #fullscreen iframe {
-            width: 90%;
-            height: 80%;
-            border: none;
-        }
-        .close-btn {
-            background: red;
-            color: white;
-            padding: 10px;
-            border: none;
-            cursor: pointer;
-            margin-bottom: 10px;
+        .close-btn:hover {
+            background: #005f73;
         }
         .disclaimer {
             margin-top: 20px;
@@ -95,8 +109,8 @@
         <div class="container">
             <!-- Card 1: Tower Of Overwatch -->
             <div class="card">
-                <img src="too.jpg" alt="Plants Eliminate Zombie">
-                <h3>Plant Eliminate Zombie</h3>
+                <img src="too.jpg" alt="Tower Of Overwatch">
+                <h3>Plant Eliminate Zombie (v2)</h3>
                 <button onclick="playGame('./ruanzhu/pza/ceshi/f10/v2')">Play</button>
             </div>
             <div class="card">
@@ -130,7 +144,7 @@
             </div>
         </div>
         <div id="fullscreen">
-            <button class="close-btn" onclick="closeGame()">Close</button>
+            <button class="close-btn" onclick="closeGame()">X</button>
             <iframe id="game-frame"></iframe>
         </div>
         <div class="disclaimer">
@@ -152,7 +166,7 @@
 
             console.log(`Loading game from: ${url}`);
             gameFrame.src = url + (url.endsWith('/') ? 'index.html' : '/index.html');
-            fullscreenDiv.style.display = 'block';
+            fullscreenDiv.style.display = 'flex'; // Make it visible
         }
 
         function closeGame() {
