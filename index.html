@@ -6,7 +6,6 @@
     <title>Dragon Boi's PvZOE Hub!</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Apply a modern dark blue gradient background */
         body {
             font-family: Helvetica, sans-serif;
             margin: 0;
@@ -73,7 +72,6 @@
             background: linear-gradient(to right, #2a5298, #1e3c72);
         }
 
-        /* Fullscreen play area */
         #fullscreen {
             display: none;
             position: fixed;
@@ -86,14 +84,12 @@
             justify-content: center;
         }
 
-        /* Iframe fills the screen */
         #game-frame {
             width: 100vw;
             height: 100vh;
             border: none;
         }
 
-        /* Round Close Button */
         .close-btn {
             position: absolute;
             top: 15px;
@@ -123,58 +119,72 @@
             font-size: 14px;
             opacity: 0.7;
         }
+
+        .lang-toggle {
+            margin: 15px;
+            padding: 10px 20px;
+            background-color: #444;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
-    <div id="content">
-        <header>
-            <h1>Dragon Boi's PvZOE Hub!</h1>
-        </header>
-        <div class="container">
-            <!-- Card 1: Tower Of Overwatch -->
-            <div class="card">
-                <img src="too.jpg" alt="Tower Of Overwatch">
-                <h3>Plant Eliminate Zombie (v2)</h3>
-                <button onclick="playGame('./ruanzhu/pza/ceshi/f10/v2')">Play</button>
-            </div>
-            <div class="card">
-                <img src="too.jpg" alt="Tower Of Overwatch">
-                <h3>Plant Eliminate Zombie (Hybrid collab)</h3>
-                <button onclick="playGame('./ruanzhu/pza/hybrid/')">Play</button>
-            </div>
-            <!-- Card 2: PvZOE -->
-            <div class="card">
-                <img src="oe.jpg" alt="PvZOE">
-                <h3>PvZOE</h3>
-                <button onclick="playGame('./ruanzhu/pza/zijie/')">Play</button>
-            </div>
-            <!-- Card 3: PvZOE Super Chomper Build -->
-            <div class="card">
-                <img src="oe.jpg" alt="PvZOE: Super Chomper Build">
-                <h3>PvZOE: Super Chomper Build</h3>
-                <button onclick="playGame('./ruanzhu/pza/v4')">Play</button>
-            </div>
-            <!-- Card 4: PvZOE v48 -->
-            <div class="card">
-                <img src="oe.jpg" alt="PvZOE: v48">
-                <h3>PvZOE: v48</h3>
-                <button onclick="playGame('./ruanzhu/pza/v48')">Play</button>
-            </div>
-            <!-- Card 5: Tower of Overwatch (Mid-Rectification) -->
-            <div class="card">
-                <img src="toologo.jpg" alt="Tower of Overwatch (Mid-Rectification)">
-                <h3>Tower of Overwatch (Mid-Rectification)</h3>
-                <button onclick="playGame('./ruanzhu/pza/v6')">Play</button>
-            </div>
+    <header>
+        <h1 id="site-title">Dragon Boi's PvZOE Hub!</h1>
+    </header>
+
+    <button class="lang-toggle" onclick="toggleLanguage()">Toggle 中文 / English</button>
+
+    <div class="container">
+        <div class="card">
+            <img src="too.jpg" alt="Tower Of Overwatch">
+            <h3 class="card-title">Plant Eliminate Zombie (v2)</h3>
+            <button onclick="playGame('./ruanzhu/pza/wx/f10/v2')">Play</button>
         </div>
-        <div id="fullscreen">
-            <button class="close-btn" onclick="closeGame()">X</button>
-            <iframe id="game-frame"></iframe>
+        <div class="card">
+            <img src="too.jpg" alt="Tower Of Overwatch">
+            <h3 class="card-title">Plant Eliminate Zombie (Hybrid collab)</h3>
+            <button onclick="playGame('./ruanzhu/pza/hybrid/')">Play</button>
         </div>
-        <div class="disclaimer">
-            PRIVATE. DO NOT SHARE.
+        <div class="card">
+            <img src="oe.jpg" alt="PvZOE">
+            <h3 class="card-title">PvZOE</h3>
+            <button onclick="playGame('./ruanzhu/pza/zijie/')">Play</button>
+        </div>
+        <div class="card">
+            <img src="oe.jpg" alt="PvZOE: Super Chomper Build">
+            <h3 class="card-title">PvZOE: Super Chomper Build</h3>
+            <button onclick="playGame('./ruanzhu/pza/v4')">Play</button>
+        </div>
+        <div class="card">
+            <img src="oe.jpg" alt="PvZOE: v48">
+            <h3 class="card-title">PvZOE: v48</h3>
+            <button onclick="playGame('./ruanzhu/pza/v48')">Play</button>
+        </div>
+        <div class="card">
+            <img src="toologo.jpg" alt="Tower of Overwatch (Mid-Rectification)">
+            <h3 class="card-title">Tower of Overwatch (Mid-Rectification)</h3>
+            <button onclick="playGame('./ruanzhu/pza/v6')">Play</button>
         </div>
     </div>
+
+    <div id="fullscreen">
+        <button class="close-btn" onclick="closeGame()">X</button>
+        <iframe id="game-frame"></iframe>
+    </div>
+
+    <div class="card" style="background: #1b1f3a;">
+        <h3>Apology / 道歉</h3>
+        <p id="apology-text">
+            Sorry for briefly taking the site down. I made this for a project, and I decided to scrape my Weixin cache to get these files.
+        </p>
+    </div>
+
+    <div class="disclaimer">PRIVATE. DO NOT SHARE.</div>
+
     <script>
         document.addEventListener('contextmenu', (e) => e.preventDefault());
         document.addEventListener('keydown', (e) => {
@@ -187,10 +197,8 @@
         function playGame(url) {
             const fullscreenDiv = document.getElementById('fullscreen');
             const gameFrame = document.getElementById('game-frame');
-
-            console.log(`Loading game from: ${url}`);
             gameFrame.src = url + (url.endsWith('/') ? 'index.html' : '/index.html');
-            fullscreenDiv.style.display = 'flex'; // Make it visible
+            fullscreenDiv.style.display = 'flex';
         }
 
         function closeGame() {
@@ -198,6 +206,60 @@
             const gameFrame = document.getElementById('game-frame');
             gameFrame.src = '';
             fullscreenDiv.style.display = 'none';
+        }
+
+        let currentLanguage = 'en';
+
+        const translations = {
+            header: {
+                en: "Dragon Boi's PvZOE Hub!",
+                zh: "龙仔的PvZOE中心！"
+            },
+            cards: [
+                {
+                    en: "Plant Eliminate Zombie (v2)",
+                    zh: "植物消灭僵尸（v2版）"
+                },
+                {
+                    en: "Plant Eliminate Zombie (Hybrid collab)",
+                    zh: "植物消灭僵尸（混合合作版）"
+                },
+                {
+                    en: "PvZOE",
+                    zh: "植物大战僵尸：OE版"
+                },
+                {
+                    en: "PvZOE: Super Chomper Build",
+                    zh: "植物大战僵尸OE：超级食人花版"
+                },
+                {
+                    en: "PvZOE: v48",
+                    zh: "植物大战僵尸OE：v48版"
+                },
+                {
+                    en: "Tower of Overwatch (Mid-Rectification)",
+                    zh: "守望之塔（中期整改）"
+                }
+            ],
+            apology: {
+                en: "Sorry for briefly taking the site down. I made this for a project, and I decided to scrape my Weixin cache to get these files.",
+                zh: "抱歉网站曾短暂关闭。我是为一个项目制作的，并决定从我的微信缓存中提取这些文件。"
+            }
+        };
+
+        function toggleLanguage() {
+            currentLanguage = currentLanguage === 'en' ? 'zh' : 'en';
+
+            document.getElementById('site-title').textContent = translations.header[currentLanguage];
+
+            const cardTitles = document.querySelectorAll('.card-title');
+            cardTitles.forEach((el, i) => {
+                if (translations.cards[i]) {
+                    el.textContent = translations.cards[i][currentLanguage];
+                }
+            });
+
+            document.getElementById('apology-text').textContent = translations.apology[currentLanguage];
         }
     </script>
 </body>
