@@ -142,37 +142,37 @@
         <div class="card">
             <img src="too.jpg" alt="Tower Of Overwatch">
             <h3 class="card-title">Plant Eliminate Zombie (v2)</h3>
-            <button onclick="playGame('./ruanzhu/pza/ceshi/f10/v2')">Play</button>
+            <button onclick="playGame('.http://rescdn.gamejym.com/ceshi/f10/v2')">Play</button>
         </div>
         <div class="card">
             <img src="too.jpg" alt="Tower Of Overwatch">
             <h3 class="card-title">Plant Eliminate Zombie (Hybrid collab)</h3>
-            <button onclick="playGame('./ruanzhu/pza/hybrid/')">Play</button>
+            <button onclick="playGame(atob('aHR0cDovL3Jlc2Nkbi5nYW1lanltLmNvbS9wemEyL3Y0OS8='))">Play</button>
+        </div>
+        <div class="card">
+            <img src="too.jpg" alt="Tower Of Overwatch">
+            <h3 class="card-title">Plant Eliminate Zombie (Hybrid collab QQ)</h3>
+            <button onclick="playGame(atob('aHR0cDovL3Jlc2Nkbi5nYW1lanltLmNvbS9wemEyL3Y2MS8='))">Play</button>
         </div>
         <div class="card">
             <img src="oe.jpg" alt="PvZOE">
             <h3 class="card-title">PvZOE</h3>
-            <button onclick="playGame('./ruanzhu/pza/zijie/')">Play</button>
+            <button onclick="playGame(atob('aHR0cDovL3Jlc2Nkbi5nYW1lanltLmNvbS9jZXNoaS9mMS92MQ=='))">Play</button>
         </div>
         <div class="card">
             <img src="oe.jpg" alt="PvZOE: Super Chomper Build">
             <h3 class="card-title">PvZOE: Super Chomper Build</h3>
-            <button onclick="playGame('./ruanzhu/pza/v4')">Play</button>
+            <button onclick="playGame(atob('aHR0cDovL3R3MS5nYW1lanltLmNvbS9ydWFuemh1L3B6YS9ieXRlL3YxLw=='))">Play</button>
         </div>
         <div class="card">
-            <img src="oe.jpg" alt="PvZOE: v48">
-            <h3 class="card-title">PvZOE: v48</h3>
-            <button onclick="playGame('./ruanzhu/pza/v48')">Play</button>
-        </div>
-        <div class="card">
-            <img src="toologo.jpg" alt="Tower of Overwatch (Mid-Rectification)">
+            <img src="toologo.jpg" alt="PvZOE">
             <h3 class="card-title">Tower of Overwatch (Mid-Rectification)</h3>
-            <button onclick="playGame('./ruanzhu/pza/v6')">Play</button>
+            <button onclick="playGame(atob('aHR0cDovL3R3MS5nYW1lanltLmNvbS9jZXNoaS9mMi92Mi8='))">Play</button>
         </div>
 		<div class="card">
             <img src="too.jpg" alt="Unnamed unfinished rebrand">
             <h3 class="card-title">Unnamed unfinished rebrand</h3>
-            <button onclick="playGame('./NEW REBRAND')">Play</button>
+            <button onclick="playGame(atob('aHR0cDovL3R3MS5nYW1lanltLmNvbS9jZXNoaS9mMzEvdjM4Lw=='))">Play</button>
         </div>
     </div>
 
@@ -184,36 +184,36 @@
     <div class="card" style="background: #1b1f3a;">
         <h3>Apology / 道歉</h3>
         <p id="apology-text">
-            Sorry for briefly taking the site down. I made this for a project, and I decided to scrape my Weixin cache to get these files.
+            Sorry for briefly taking the site down. I made this for a project, and I decided to scrape my cache to get these files.
         </p>
     </div>
 
     <div class="disclaimer"> </div>
 
-    <script>
-        document.addEventListener('contextmenu', (e) => e.preventDefault());
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'F12' || (e.ctrlKey && (e.key === 'U' || e.key === 'I'))) {
-                e.preventDefault();
-                alert('Inspecting is disabled.');
+    
+<script>
+(function () {
+    const lock = document.createElement("div");
+    lock.id = "lockscreen";
+    lock.style.cssText = "position:fixed;top:0;left:0;width:100%;height:100%;background:black;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:monospace;color:#33ff33;";
+    lock.innerHTML = `<div style="font-size:20px;">ENTER PASSWORD</div>
+    <input type="password" id="unlockInput" style="margin-top:10px;background:black;border:1px solid #33ff33;color:#33ff33;padding:10px;font-size:18px;" autofocus />
+    <div id="wrongPass" style="color:red;margin-top:10px;"></div>`;
+    document.body.appendChild(lock);
+
+    document.getElementById("unlockInput").addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+            if (this.value === "pvzmpol") {
+                document.body.removeChild(lock);
+                initSite();
+            } else {
+                document.getElementById("wrongPass").textContent = "ACCESS DENIED";
             }
-        });
-
-        function playGame(url) {
-            const fullscreenDiv = document.getElementById('fullscreen');
-            const gameFrame = document.getElementById('game-frame');
-            gameFrame.src = url + (url.endsWith('/') ? 'index.html' : '/index.html');
-            fullscreenDiv.style.display = 'flex';
         }
+    });
 
-        function closeGame() {
-            const fullscreenDiv = document.getElementById('fullscreen');
-            const gameFrame = document.getElementById('game-frame');
-            gameFrame.src = '';
-            fullscreenDiv.style.display = 'none';
-        }
-
-        let currentLanguage = 'en';
+    function initSite() {
+        let currentLanguage = 'en'; // start in Chinese mode
 
         const translations = {
             header: {
@@ -221,34 +221,13 @@
                 zh: "龙仔的PvZOE中心！"
             },
             cards: [
-                {
-                    en: "Plant Eliminate Zombie (v2)",
-                    zh: "植物消灭僵尸（v2版）"
-                },
-                {
-                    en: "Plant Eliminate Zombie (Hybrid collab)",
-                    zh: "植物消灭僵尸（混合合作版）"
-                },
-                {
-                    en: "PvZOE",
-                    zh: "植物大战僵尸：OE版"
-                },
-                {
-                    en: "PvZOE: Super Chomper Build",
-                    zh: "植物大战僵尸OE：超级食人花版"
-                },
-                {
-                    en: "PvZOE: v48",
-                    zh: "植物大战僵尸OE：v48版"
-                },
-                {
-                    en: "Tower of Overwatch (Mid-Rectification)",
-                    zh: "守望之塔（中期整改）"
-                },
-				 {
-                    en: "Unnamed unfinished rebrand",
-                    zh: "未命名、未完成的品牌重塑"
-                }
+                { en: "Plant Eliminate Zombie (v2)", zh: "植物消灭僵尸（v2版）" },
+                { en: "Plant Eliminate Zombie (Hybrid collab)", zh: "植物消灭僵尸（混合合作版）" },
+                { en: "Plant Eliminate Zombie (Hybrid collab QQ)", zh: "植物消灭僵尸（混合合作版QQ）" },
+                { en: "PvZOE", zh: "植物大战僵尸：OE版" },
+                { en: "PvZOE: Super Chomper Build", zh: "植物大战僵尸OE：超级食人花版" },
+                { en: "Tower of Overwatch (Mid-Rectification)", zh: "守望之塔（中期整改）" },
+                { en: "Unnamed unfinished rebrand", zh: "未命名、未完成的品牌重塑" }
             ],
             apology: {
                 en: "Sorry for briefly taking the site down. I made this for a project, and I decided to scrape my Weixin cache to get these files.",
@@ -256,9 +235,12 @@
             }
         };
 
-        function toggleLanguage() {
+        window.toggleLanguage = function () {
             currentLanguage = currentLanguage === 'en' ? 'zh' : 'en';
+            applyTranslations();
+        };
 
+        function applyTranslations() {
             document.getElementById('site-title').textContent = translations.header[currentLanguage];
 
             const cardTitles = document.querySelectorAll('.card-title');
@@ -270,6 +252,35 @@
 
             document.getElementById('apology-text').textContent = translations.apology[currentLanguage];
         }
-    </script>
+
+        applyTranslations(); // apply Chinese translation on load
+
+        // PlayGame & Inspect protection from original script
+        window.playGame = function (url) {
+            const fullscreenDiv = document.getElementById('fullscreen');
+            const gameFrame = document.getElementById('game-frame');
+            gameFrame.src = url + (url.endsWith('/') ? 'index.html' : '/index.html');
+            fullscreenDiv.style.display = 'flex';
+        };
+
+        window.closeGame = function () {
+            const fullscreenDiv = document.getElementById('fullscreen');
+            const gameFrame = document.getElementById('game-frame');
+            gameFrame.src = '';
+            fullscreenDiv.style.display = 'none';
+        };
+
+        document.addEventListener('contextmenu', (e) => e.preventDefault());
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'F12' || (e.ctrlKey && (e.key === 'U' || e.key === 'I'))) {
+                e.preventDefault();
+                alert('Inspecting is disabled.');
+            }
+        });
+    }
+})();
+</script>
 </body>
+</html>
+
 </html>
